@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <title>Crypto Messenger</title>
+</head>
+<body>
+<h1>Crypto Messenger</h1>
+
+<form action = "/send-request" method = "POST">
+    <p>Address&nbsp;<input name="address" type="url" style="margin: 2px; width: 300px;" value="http://95.128.177.2:9090/axis2/services/CryptoService" /></p>
+
+    <p>Request&nbsp;(in XML format)&nbsp;<textarea name="request" style="margin: 2px; width: 400px; height: 200px;"></textarea></p>
+
+    <p>XPath expression&nbsp;<input name="filteringExpression" type="text" /></p>
+
+    <p style="text-align: center;"><input name="sendButton" type="submit" value="Handle"/></p>
+</form>
+
+#if ($response)
+    <hr>
+    <p>Response (in XML format)&nbsp;<textarea name="response" style="margin: 2px; width: 400px; height: 200px;">$response</textarea></p>
+
+    #if ($filteredElements)
+        <p>Filtered elements<textarea name="filtered" style="margin: 2px; width: 400px; height: 200px;">$filteredElements</textarea></p>
+    #end
+#end
+
+</body>
+</html>
